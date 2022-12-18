@@ -4,17 +4,14 @@ from utilities import running_pace_calculator
 
 app = Flask(__name__)
 cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
 
 
 @app.route("/")
-@cross_origin()
 def index():
 	return "Hello World!"
 
 
 @app.route("/convert", methods=["POST"])
-@cross_origin()
 def convert_input():
 	params = request.json
 	running_time = str(params.get("running_time", "")).strip()
